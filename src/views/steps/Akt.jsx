@@ -13,6 +13,7 @@ import saveJWT from '../../functions/saveJWT';
 import checkAuth from '../../functions/checkAuth';
 import Animate from '../../components/Animate.jsx';
 import Loader from '../../components/Loader.jsx';
+import { store } from '../../redux/redux';
 
 class Akt extends FormPage {
     constructor(props) {
@@ -31,14 +32,32 @@ class Akt extends FormPage {
         },
         policy: {
             type: 'checkbox',
-            support: () => (
-                <>
-                    Я соглашаюсь с политикой конфиденциальности и{' '}
-                    <a href="/upload/docs/agreement-full.pdf" target="_blank" rel="noreferrer">
-                        условиями обработки персональных данных
-                    </a>
-                </>
-            ),
+            support: () => {
+                const user = store.getState().user;
+                let link = 'agreement.pdf';
+
+                if (
+                    user?.extraDataRequired &&
+                    Object.keys(user.extraDataRequired).find(
+                        (k) => user.extraDataRequired[k]?.type === 'photo',
+                    )
+                ) {
+                    link = 'agreement-full.pdf';
+                }
+
+                return (
+                    <>
+                        Я соглашаюсь с{' '}
+                        <a href="/upload/docs/sp/politics.pdf" target="_blank" rel="noreferrer">
+                            политикой конфиденциальности
+                        </a>{' '}
+                        и{' '}
+                        <a href={`/upload/docs/sp/${link}`} target="_blank" rel="noreferrer">
+                            условиями обработки персональных данных
+                        </a>
+                    </>
+                );
+            },
         },
     };
 
