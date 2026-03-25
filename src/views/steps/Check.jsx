@@ -28,7 +28,8 @@ class Check extends React.Component {
                         </p>
                         <p>
                             В течение 5-ти рабочих дней с Вами свяжется Оператор с официальной почты
-                            Акции — svoipluses-football@yandex.ru.
+                            Акции — <br />
+                            svoipluses-football@yandex.ru.
                         </p>
                         <p>
                             Если в данных будут обнаружены ошибки, мы пришлём Вам уведомление на
