@@ -43,9 +43,8 @@ class Name extends FormPage {
                 <>
                     Я соглашаюсь с политикой конфиденциальности и{' '}
                     <a href="/upload/docs/agreement-full.pdf" target="_blank" rel="noreferrer">
-                        обработкой персональных данных
+                        условиями обработки персональных данных
                     </a>
-                    *
                 </>
             ),
         },
@@ -230,41 +229,31 @@ class Name extends FormPage {
             <div ref={this.parent} className="form">
                 {type === 'anket' && (
                     <div className="form__head">
-                        <h1 className="form__headTitle">
+                        <h1 className="form__headTitle _notBottom">
                             Поздравляем с выигрышем «{prize?.title}»!
                         </h1>
                         <h1 className="form__headTitle _notBottom">
-                            Для получения приза, пожалуйста, заполните все поля и приложите
-                            необходимые документы
+                            Для получения приза, пожалуйста, заполните все поля
+                            {user?.extraDataRequired &&
+                                Object.keys(user.extraDataRequired).find(
+                                    (k) => user.extraDataRequired[k]?.type === 'photo',
+                                ) && <>&nbsp;и приложите необходимые документы</>}
                         </h1>
                         {lastError && <div className="form__headError">{lastError}</div>}
-                        {/* {extraDataRequired?.passportPage1 && (
-                            <p className="form__headText">
-                                Заполнить анкету нужно для того, чтобы провести оплату налогов за
-                                приз — это Организатор берёт на себя. Нам нужны только реальные
-                                данные: чем точнее и быстрее заполните, тем скорее сможете получить
-                                свой подарок. Заполнение анкеты займёт 10 минут.
-                            </p>
-                        )} */}
-
-                        {/* <p className="form__headText">
-                            Для получения приза <b>«{prize?.title}»</b>, пожалуйста, заполните все
-                            поля анкеты
-                            {extraDataRequired?.passportPage1
-                                ? ' и приложите сканы документов:'
-                                : ':'}
-                        </p> */}
                     </div>
                 )}
                 {type === 'rest' && (
                     <div className="form__head">
-                        <h1 className="form__headTitle _notBottom">Выберите желаемую дату поездки</h1>
+                        <h1 className="form__headTitle _notBottom">
+                            Выберите желаемую дату поездки
+                        </h1>
                     </div>
                 )}
                 {type === 'guest' && (
                     <div className="form__head">
                         <h1 className="form__headTitle _notBottom">
-                            Заполните данные второго гостя
+                            Пожалуйста, выберите футбольного игрока, от кого хотели бы получить
+                            видео-приветствие
                         </h1>
                     </div>
                 )}

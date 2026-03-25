@@ -35,9 +35,8 @@ class Akt extends FormPage {
                 <>
                     Я соглашаюсь с политикой конфиденциальности и{' '}
                     <a href="/upload/docs/agreement-full.pdf" target="_blank" rel="noreferrer">
-                        обработкой персональных данных
+                        условиями обработки персональных данных
                     </a>
-                    *
                 </>
             ),
         },
