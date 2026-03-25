@@ -23,7 +23,6 @@ class Check extends React.Component {
                         <div className="form__headTitle _notBottom">Данные успешно загружены</div>
                     </div>
                     <div className="form__info">
-                        Спасибо, Ваши данные получены.
                         <p>
                             <b>Спасибо, Ваши данные получены.</b>
                         </p>
