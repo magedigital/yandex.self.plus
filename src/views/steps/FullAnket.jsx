@@ -249,7 +249,7 @@ class Name extends FormPage {
                 {type === 'anket' && (
                     <div className="form__head">
                         <h1 className="form__headTitle">
-                            Поздравляем с выигрышем «{prize?.title}»!
+                            Поздравляем с выигрышем приза «{prize?.title}»!
                         </h1>
                         <h1 className="form__headTitle _notBottom">
                             Для получения приза, пожалуйста, заполните все поля
