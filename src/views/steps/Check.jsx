@@ -32,8 +32,8 @@ class Check extends React.Component {
                             svoipluses-football@yandex.ru.
                         </p>
                         <p>
-                            Если в данных будут обнаружены ошибки, мы пришлём Вам уведомление на
-                            Вашу электронную почту {user?.personal?.email}
+                            Если в данных будут обнаружены ошибки, мы пришлём уведомление на Вашу
+                            электронную почту {user?.personal?.email}
                         </p>
                     </div>
                 </div>
